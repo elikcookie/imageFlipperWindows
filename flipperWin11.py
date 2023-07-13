@@ -18,16 +18,18 @@ for image_file in image_files:
     # Flip image horizontally
     pyautogui.press('tab', presses=16)
     pyautogui.press('enter')
-    time.sleep(2)
+    time.sleep(1)
     
     # Save the flipped image
     pyautogui.press('tab', presses=8)
-    pyautogui.press('down')
-    pyautogui.press('tab',_pause = True)
     pyautogui.press('enter')
-    time.sleep(2)
+    time.sleep(1)
+    pyautogui.press('enter')
+    time.sleep(1)
     
     pyautogui.hotkey('alt', 'f4')  # close image viewer
-
+    flipped_image_path = os.path.join(folder_path, f"flipped_{image_file}")
+    image.save(flipped_image_path)
+    image.close()
 
 print("Image flipping completed.")
