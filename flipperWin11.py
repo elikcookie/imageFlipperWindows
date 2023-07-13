@@ -12,15 +12,22 @@ for image_file in image_files:
     image = Image.open(image_path)
     os.startfile(image_path)
     time.sleep(2)
-    pyautogui.hotkey('ctrl', 'e')
+    pyautogui.hotkey('ctrl', 'e')  # image editor shortcut
     time.sleep(2)
-    pyautogui.click(x=200, y=200)
+    
+    # Flip image horizontally
+    pyautogui.press('tab', presses=16)
+    pyautogui.press('enter')
     time.sleep(2)
-    pyautogui.click(x=300, y=300)
+    
+    # Save the flipped image
+    pyautogui.press('tab', presses=8)
+    pyautogui.press('down')
+    pyautogui.press('tab',_pause = True)
+    pyautogui.press('enter')
     time.sleep(2)
-    pyautogui.hotkey('alt', 'f4')
-    flipped_image_path = os.path.join(folder_path, f"flipped_{image_file}")
-    image.save(flipped_image_path)
-    image.close()
+    
+    pyautogui.hotkey('alt', 'f4')  # close image viewer
+
 
 print("Image flipping completed.")
